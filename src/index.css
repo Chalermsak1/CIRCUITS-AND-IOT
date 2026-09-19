@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-jetbrains: 'JetBrains Mono', monospace;
+
+  /* Clean Light IoT Engineering Palette Tokens */
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --border-subtle: #e2e8f0;
+  --border-card: #e2e8f0;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+
+  --accent-blue: #2563eb;
+  --accent-sky: #0284c7;
+  --accent-cyan: #0891b2;
+
+  --status-emerald-bg: #ecfdf5;
+  --status-emerald-text: #047857;
+  --status-emerald-border: #a7f3d0;
+
+  --status-amber-bg: #fffbeb;
+  --status-amber-text: #b45309;
+  --status-amber-border: #fde68a;
+
+  --status-rose-bg: #fef2f2;
+  --status-rose-text: #b91c1c;
+  --status-rose-border: #fecaca;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom clean light scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hide scrollbar for clean horizontal tabs on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Monospace metrics font */
+.font-mono-data {
+  font-family: var(--font-jetbrains);
+}
+
+/* Engineering status blinks */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.95); }
+}
+
+.animate-status-blink {
+  animation: status-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Subtle clean data-flow pulse animation (~1.2s per prompt spec) */
+@keyframes data-flow-pulse {
+  0% { opacity: 0.35; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.35; transform: scale(0.98); }
+}
+
+.animate-data-flow {
+  animation: data-flow-pulse 1.2s ease-in-out infinite;
+}
+
+/* Crisp White Engineering Card & Panel Styles */
+.glass-panel {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+.eng-panel {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+/* Light subtle card highlights */
+.glass-panel-glow-cyan {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(2, 132, 199, 0.15);
+}
+
+.glass-panel-glow-emerald {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(16, 185, 129, 0.2);
+}
+
+.glass-panel-glow-amber {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(245, 158, 11, 0.2);
+}
